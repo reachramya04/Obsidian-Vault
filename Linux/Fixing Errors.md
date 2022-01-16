@@ -44,4 +44,4 @@ then `sudo pacman -Syyu`
 `yay -S playerctl`
 then edit the openbox config in `/home/javetsm/.config/openbox/rc.xml`
 changed the `mpc [command]` to `playerctl [command]`
-`bruh wtf`
+`bruh wtf more text`

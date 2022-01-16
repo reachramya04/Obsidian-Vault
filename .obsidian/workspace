@@ -7,8 +7,12 @@
         "id": "2496177ce2ebd150",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Linux/Fixing Errors.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Linux/Fixing Errors.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -83,5 +88,10 @@
     "collapsed": true
   },
   "active": "2496177ce2ebd150",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Linux/Fixing Errors.md",
+    "conflict-files-obsidian-git.md",
+    "Linux/My Setup.md",
+    "Chemistry/Aldehydes Ketones and Carboxylic Acids.md"
+  ]
 }
