@@ -1,4 +1,7 @@
 [
   "table-editor-obsidian",
-  "sliding-panes-obsidian"
+  "sliding-panes-obsidian",
+  "obsidian-git",
+  "obsidian-latex-environments",
+  "cm-editor-syntax-highlight-obsidian"
 ]
