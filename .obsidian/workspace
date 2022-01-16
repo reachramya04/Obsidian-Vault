@@ -1,33 +1,29 @@
 {
   "main": {
-    "id": "2d250e71ea7dab87",
+    "id": "e792fc5bd72c1b1f",
     "type": "split",
     "children": [
       {
-        "id": "349aa2f85677c408",
+        "id": "2496177ce2ebd150",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Linux/Fixing Errors.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "47a517b16ec82844",
+    "id": "ad4ec34f6ac86a54",
     "type": "split",
     "children": [
       {
-        "id": "4956d705f5a1cfd6",
+        "id": "6640b0225ba29f53",
         "type": "tabs",
         "children": [
           {
-            "id": "988cb3cfd2ca3133",
+            "id": "2913f1a7b773ca53",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +31,7 @@
             }
           },
           {
-            "id": "986fd613e0ad4aae",
+            "id": "d9c23b10d5f3c39a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -53,23 +49,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245
+    "width": 300
   },
   "right": {
-    "id": "412ecaeb400356c1",
+    "id": "b6fc5f7187eea562",
     "type": "split",
     "children": [
       {
-        "id": "147c544e12001360",
+        "id": "c79eef08de918a0a",
         "type": "tabs",
         "children": [
           {
-            "id": "880d0a2c8d0cf00e",
+            "id": "97ca64b6feaf8270",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/Fixing Errors.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -77,17 +72,6 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "e52a91d3f682128a",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
               }
             }
           }
@@ -98,10 +82,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "349aa2f85677c408",
-  "lastOpenFiles": [
-    "Linux/Fixing Errors.md",
-    "Chemistry/Aldehydes Ketones and Carboxylic Acids.md",
-    "Linux/My Setup.md"
-  ]
+  "active": "2496177ce2ebd150",
+  "lastOpenFiles": []
 }
