@@ -1,4 +1,4 @@
 1. [[Aldehydes]]
-2. [[Ketones]]
-3. [[Aldehydes and Ketones]]
-4. [[Carboxylic Acids]]
+1. [[Ketones]]
+2. [[Aldehydes and Ketones]]
+3. [[Carboxylic Acids]]
