@@ -55,7 +55,7 @@ this means `pp` can be used instead of `sudo powerpill`
 
 
 # Reflector - simple
-> Mofo stopped working for some reason so found this command to reinstall every package on the system
+> Mofo stopped working for some reason so found this command to reinstall every package on the system which kinda fixes it 
 
 ```
 sudo pacman -Syu $(pacman -Qq) 
