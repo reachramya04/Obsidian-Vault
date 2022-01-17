@@ -52,3 +52,11 @@ Add the alias command to your `.zshrc` or `.bashrc`
 alias pp='sudo powerpill'
 ```
 this means `pp` can be used instead of `sudo powerpill`
+
+
+# Reflector - simple
+> Mofo stopped working for some reason so found this command to reinstall every package on the system
+
+```
+sudo pacman -Syu $(pacman -Qq) 
+```
