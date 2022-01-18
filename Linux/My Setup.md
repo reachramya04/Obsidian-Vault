@@ -48,7 +48,7 @@
 - Spotify (FLATPAK ONLY)
 	- Spotify Adblock [Link For installation](https://github.com/abba23/spotify-adblock)
 - Gmail Desktop
-- Joplin
+- Obsidian
 - Taunon Music Box
 - mpv
 - Gestures [Link for installation](https://www.youtube.com/watch?v=ArBCfhVsTZw)
@@ -63,3 +63,5 @@
 - neofetch [Link for installation](https://github.com/dylanaraps/neofetch)
 - ani-cli [Link for installation](https://github.com/pystardust/ani-cli)
 - GedditSave
+
+
