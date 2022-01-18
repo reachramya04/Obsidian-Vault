@@ -1,6 +1,6 @@
 # pip
 **Error**
-```
+```bash
 Traceback (most recent call last):
   File "/usr/bin/pip", line 33, in <module>
     sys.exit(load_entry_point('pip==20.3.4', 'console_scripts', 'pip')())
@@ -44,6 +44,16 @@ then `sudo pacman -Syyu`
 `yay -S playerctl`
 then edit the openbox config in `/home/javetsm/.config/openbox/rc.xml`
 changed the `mpc [command]` to `playerctl [command]`
+
+# conflicting packages while updating 
+> Got  a beeeg npm error which said smth smth "already exists in filesystem"
+
+```bash
+sudo pacman --overwrite "*" -Syu
+```
+
+This forces it to overwrite the packages , btw that `"*"` does something magic like so that `-Syu` runs too :D
+[More about all this here](https://unix.stackexchange.com/questions/240252/pacman-exists-on-filesystem-error)
 
 
 
