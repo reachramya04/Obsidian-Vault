@@ -14,7 +14,6 @@ importlib.metadata.PackageNotFoundError: pip
 ```
 
 **Fix**
-   
 install pip from `curl -O https://bootstrap.pypa.io/get-pip.py`  then
 `python get-pip.py pip==version`
 
@@ -33,7 +32,7 @@ Edit the fstab file and add the UUID and mount it wherever you like :)
 # system update
 > corrupted packages problem 
 
-do this
+**Fix**
 `pacman -S archlinux-keyring`
 then `sudo pacman -Syyu`
 :D
@@ -41,6 +40,7 @@ then `sudo pacman -Syyu`
 # play-pause (media keys)
 > media keys werent working
 
+**Fix**
 `yay -S playerctl`
 then edit the openbox config in `/home/javetsm/.config/openbox/rc.xml`
 changed the `mpc [command]` to `playerctl [command]`
@@ -48,6 +48,7 @@ changed the `mpc [command]` to `playerctl [command]`
 # conflicting packages while updating 
 > Got  a beeeg npm error which said smth smth "already exists in filesystem"
 
+**Fix**
 ```bash
 sudo pacman --overwrite "*" -Syu
 ```
