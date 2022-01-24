@@ -35,9 +35,40 @@ The `c.execute()` is used to execute the SQL code.
 import sqlite3
 conn = sqlite3.connect('testing.db') #connection
 c = conn.cursor()
-c.execute('CREATE TABLE characters')
+c.execute('CREATE TABLE IF NOT EXISTS characters (Name text , Power text , Bounty integer)')
 conn.commit()
 ```
 
 `conn.commit()` is used to write those changes in the `.db` file.
 If we don't commit to the database then the commands executed wont affect the `.db` file and no changes would be made.
+
+**Inserting Values Method1**
+```python 
+c.execute("INSERT INTO characters VALUES ('Monke D. Luffy' , 'Gum Gum Fruit' , 1500000000)")
+
+c.execute("INSERT INTO characters VALUES ('Vinsmoke Sanji' , 'Black Legs' , 330000000)")
+
+c.execute("INSERT INTO characters VALUES ('Roronora Zoro' , 'Swordsman' , 320000000)")
+conn.commit()
+```
+
+This will insert the values for some characters.
+
+**Inserting Values Method2**
+```python
+more_characters = [("Nami" , "Weather Manipulation" , 66000000) , ("Usopp" , "Sniper" , 200000000) , ("Chopper" , "Pharamaceuticals Specialist" , 100) , ("Nico Robin" , "Flower Flower Fruit" , 130000000)]
+
+c.execute("INSERT INTO characters VALUES (?,?,?)", more_characters)
+conn.commit()
+```
+
+**Getting Data From Tables**
+```python
+c.execute("SELECT * FROM characters*")
+data = c.fetchall()
+print(data)
+```
+
+`c.fetchall()` gets all the output from the command executed before it.
+
+
