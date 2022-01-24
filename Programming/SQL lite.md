@@ -42,7 +42,7 @@ conn.commit()
 `conn.commit()` is used to write those changes in the `.db` file.
 If we don't commit to the database then the commands executed wont affect the `.db` file and no changes would be made.
 
-**Inserting Values Method1**
+**Inserting Values Method 1**
 ```python 
 c.execute("INSERT INTO characters VALUES ('Monke D. Luffy' , 'Gum Gum Fruit' , 1500000000)")
 
@@ -54,9 +54,9 @@ conn.commit()
 
 This will insert the values for some characters.
 
-**Inserting Values Method2**
+**Inserting Values Method 2**
 ```python
-more_characters = [("Nami" , "Weather Manipulation" , 66000000) , ("Usopp" , "Sniper" , 200000000) , ("Chopper" , "Pharamaceuticals Specialist" , 100) , ("Nico Robin" , "Flower Flower Fruit" , 130000000)]
+more_characters = [("Nami" , "Weather Manipulation" , 66000000) , ("Usopp" , "Sniper" , 200000000) , ("Chopper" , "Pharamaceuticals Specialist" , 100) , ("Nico Robin" , "Flower Flower Fruit" , 100000000)]
 
 c.execute("INSERT INTO characters VALUES (?,?,?)", more_characters)
 conn.commit()
@@ -71,4 +71,18 @@ print(data)
 
 `c.fetchall()` gets all the output from the command executed before it.
 
+**Updating A Table**
+```python
+c.execute("UPDATE characters SET Bounty=130000000 WHERE Name='%Robin'")
+conn.commit()
+```
+
+**Deleting Data From The Table**
+```python
+c.execute("DELETE FROM characters WHERE name='%per'")
+conn.commit()
+```
+
+
+# For more please [check this](https://www.sqlitetutorial.net/)
 
