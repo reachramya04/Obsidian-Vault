@@ -56,5 +56,12 @@ sudo pacman --overwrite "*" -Syu
 This forces it to overwrite the packages , btw that `"*"` does something magic like so that `-Syu` runs too :D
 [More about all this here](https://unix.stackexchange.com/questions/240252/pacman-exists-on-filesystem-error)
 
+# keyboard not working properly
+**Fix**
+```bash
+localectl
+```
+Type this and set both the values to *us*
+
 
 
