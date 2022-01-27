@@ -27,9 +27,7 @@ from rich import print
 
 print("Hello, [bold magenta]World[/bold magenta]!")
 ```
-#### Output
-Hello <font color="magenta"  style = "font-weight:bold">World!</font>
-
+>  `>>>`  Hello <font color="magenta"  style = "font-weight:bold">World!</font>
 
 
 ###  rich Console
@@ -53,12 +51,10 @@ There are a few ways of adding color and style to your output. You can set a sty
 ```python
 console.print("Hello", "World!", style="bold red")
 ```
-
-#### Output
-<font color="red" style="font-weight:bold">Hello World!</font>
+>  `>>>`  <font color="red" style="font-weight:bold">Hello World!</font>
 
 
-# rich Inspect function
+###  rich Inspect function
 Rich has an [inspect](https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect) function which can produce a report on any Python object, such as class, instance, or builtin.
 ```python 
 my_list = ["foo", "bar"]
@@ -69,8 +65,56 @@ inspect(my_list, methods=True)
 
 
 
+# Styles
+In various places in the Rich API you can set a “style” which defines the color of the text and various attributes such as bold, italic etc. A style may be given as a string containing a _style definition_ or as an instance of a [`Style`](https://rich.readthedocs.io/en/latest/reference/style.html#rich.style.Style "rich.style.Style") class.
 
 
+### Defining Styles
+- A style definition is a string containing one or more words to set colors and attributes.
+To specify a foreground color use one of the 256 [Standard Colors](https://rich.readthedocs.io/en/latest/appendix/colors.html#appendix-colors). 
+For example, to print “Hello” in magenta:
+```python 
+console.print("Hello", style="magenta")
+```
+>  `>>>`  <font color="magenta">Hello</font>
 
+- Alteratively you can use a CSS-like syntax to specify a color with a “#” followed by three pairs of hex characters, or in RGB form with three decimal integers.
+```python
+console.print("Hello", style="#af00ff")
+console.print("Hello", style="rgb(175,0,255)")
+```
+> `>>>`  <font color="#af00ff">Hello</font>
+> `>>>`  <font color="#af00ff">Hello</font>
+
+**Note :** Some terminals only support 256 colors. Rich will attempt to pick the closest color it can if your color isn’t available.
+
+- You can also set a background color , precede the color with word "on ".
+```python
+console.print("DANGER!", style="red on white")
+```
+>  `>>>`  <font color="red" style="background-color:white">DANGER!</font>
+
+- **You can set a style attribute by adding one or more of the following words:**
+	- `"bold"` or `"b"` for bold text.
+	-   `"blink"` for text that flashes (use this one sparingly).
+  -   `"blink2"` for text that flashes rapidly (not supported by most terminals).
+	-   `"conceal"` for _concealed_ text (not supported by most terminals).
+	-   `"italic"` or `"i"` for italic text (not supported on Windows).
+	-   `"reverse"` or `"r"` for text with foreground and background colors reversed.
+	-   `"strike"` or `"s"` for text with a line through it.    
+	-   `"underline"` or `"u"` for underlined text.
+
+- Styles may be negated by prefixing the attribute with the word “not”. This can be used to turn off styles if they overlap. For example:
+```python
+console.print("foo [not bold]bar[/not bold] baz", style="bold")
+```
+> `>>>`   **foo** bar **baz**
+
+
+- To add a link to a style, the definition should contain the word `"link"` followed by a URL. The following example will make a clickable link:
+```python
+console.print("[yellow underline]Google", style="link https://google.com")
+```
+> `>>>`   [Google](www.google.com)
 
 
