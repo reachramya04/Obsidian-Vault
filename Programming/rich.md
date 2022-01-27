@@ -63,11 +63,8 @@ inspect(my_list, methods=True)
 ```
 ![[Pasted image 20220127002006.png]]
 
-
-
 # Styles
 In various places in the Rich API you can set a “style” which defines the color of the text and various attributes such as bold, italic etc. A style may be given as a string containing a _style definition_ or as an instance of a [`Style`](https://rich.readthedocs.io/en/latest/reference/style.html#rich.style.Style "rich.style.Style") class.
-
 
 ### Defining Styles
 - A style definition is a string containing one or more words to set colors and attributes.
@@ -117,4 +114,51 @@ console.print("[yellow underline]Google", style="link https://google.com")
 ```
 > `>>>`   [Google](www.google.com)
 
+
+
+### Style Themes
+Rich provides a [`Theme`](https://rich.readthedocs.io/en/latest/reference/theme.html#rich.theme.Theme "rich.theme.Theme") class which you can use to define custom styles that you can refer to by name. That way you only need to update your styles in one place.
+
+To use a style theme, construct a [`Theme`](https://rich.readthedocs.io/en/latest/reference/theme.html#rich.theme.Theme "rich.theme.Theme") instance and pass it to the [`Console`](https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console "rich.console.Console") constructor. 
+Here’s an example:
+```Python
+from rich.console import Console
+from rich.theme import Theme
+custom_theme = Theme({
+    "info": "dim cyan",
+    "warning": "magenta",
+    "danger": "bold red"
+})
+console = Console(theme=custom_theme)
+console.print("This is information", style="info")
+console.print("[warning]The pod bay doors are locked[/warning]")
+console.print("Something terrible happened!", style="danger")
+```
+>  `>>>`  <font color="cyan">This is information</font>
+>  `>>>`  <font color="magenta" >The pod bay doors are locked</font>
+>  `>>>`  <font color="red"  style = "font-weight:bold">Something terrible happened</font>
+
+### bbcode Styles
+Styles can also be added to strings with bbcode like syntax .
+Here's an example:
+```Python
+from rich.console import Console
+
+console = Console()
+console.print("Initiating [bold cyan]drop[/bold cyan] sequence in....")
+```
+> `>>>`  Initiating <font color = "cyan" style="font-weight:bold">drop</font> sequence in...  
+
+
+
+# Emojis
+To insert an emoji in to console output place the name between two colons.
+Here's an example:
+```python 
+from rich.console import Console
+
+console = Console()
+console.print("The logo of dracula theme is :vampire:")
+```
+>   `>>>`  The logo of dracula theme is 🧛
 
