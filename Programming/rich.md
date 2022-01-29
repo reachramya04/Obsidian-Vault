@@ -163,3 +163,33 @@ console.print("The logo of dracula theme is :vampire:")
 >   `>>>`  The logo of dracula theme is 🧛
 
 
+
+# Tracebacks
+Rich can render Python tracebacks with syntax highlighting and formatting. Rich tracebacks are easier to read and show more code than standard Python tracebacks.
+
+To see an example of a Rich traceback, running the following command:
+```bash
+python -m rich.traceback
+```
+
+### Printing Tracebacks
+The [`print_exception()`](https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console.print_exception "rich.console.Console.print_exception") method will print a traceback for the current exception being handled.
+Here’s an example:
+```Python
+from rich.console import Console
+console = Console()
+
+try:
+    do_something()
+except Exception:
+    console.print_exception(show_locals=True)
+```
+
+### Traceback Handler
+Rich can be installed as the default traceback handler so that all uncaught exceptions will be rendered with highlighting. 
+Here’s how:
+```Python
+from rich.traceback import install
+install(show_locals=True)
+```
+
