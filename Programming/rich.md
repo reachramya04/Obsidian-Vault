@@ -193,3 +193,43 @@ from rich.traceback import install
 install(show_locals=True)
 ```
 
+
+# Prompt 
+Rich has a number of [`Prompt`](https://rich.readthedocs.io/en/latest/reference/prompt.html#rich.prompt.Prompt "rich.prompt.Prompt") classes which ask a user for input and loop until a valid response is received . Here’s a simple example:
+```Python
+>>> from rich.prompt import Prompt
+>>> name = Prompt.ask("Enter your name")
+```
+>  `>>>`  Enter your name 
+
+It might look pretty similar to the `input()` function , but it also offers many other functionalities that `input()` function doesn't have.
+
+### Default Values 
+You can set a default value which will be returned if the user presses return without entering any text.
+Here's an example:
+```Python
+>>> from rich.prompt import Prompt
+>>> name = Prompt.ask("Enter your name", default="Roronoa Zoro")
+```
+>  `>>>`  Enter your name <font color="cyan" style="font-weight:bold">(Roronoa Zoro)</font> :
+
+### Choices
+If you supply a list of choices, the prompt will loop until the user enters one of the choices.
+Here's an example:
+```Python
+>>> from rich.prompt import Prompt
+>>> name = Prompt.ask("Enter your name", choices=["Luffy", "Zoro", "Brooke"], default="Unknown")
+```
+>  `>>>`  Enter your name <font color="magenta" style="font-weight:bold;">[Luffy , Zoro , Brooke]</font>  <font color="cyan" style="font-weight:bold">(Unknown)</font> :
+
+In addition to `Prompt` which returns strings, you can also use `IntPrompt` which asks the user for an integer, and `FloatPrompt` for floats.
+
+### Confirm 
+The [`Confirm`](https://rich.readthedocs.io/en/latest/reference/prompt.html#rich.prompt.Confirm "rich.prompt.Confirm") class is a specialized prompt which may be used to ask the user a simple yes / no question. Here’s an example:
+```Python
+>>> from rich.prompt import Confirm
+>>> is_rich_great = Confirm.ask("Do you like rich?")
+```
+>  `>>>`  Do you like rich? <font color="magenta" style="font-weight:bold;">[y,n]</font> : 
+
+
