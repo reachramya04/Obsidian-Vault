@@ -233,3 +233,24 @@ The [`Confirm`](https://rich.readthedocs.io/en/latest/reference/prompt.html#rich
 >  `>>>`  Do you like rich? <font color="magenta" style="font-weight:bold;">[y,n]</font> : 
 
 
+# Markdown
+Rich can render Markdown to the console. To render markdown, construct a [`Markdown`](https://rich.readthedocs.io/en/latest/reference/markdown.html#rich.markdown.Markdown "rich.markdown.Markdown") object then print it to the console.
+Here’s an example of use:
+```Python
+MARKDOWN = """
+# This is an h1
+
+Rich can do a pretty *decent* job of rendering markdown.
+
+1. This is a list item
+2. This is another list item
+"""
+from rich.console import Console
+from rich.markdown import Markdown
+
+console = Console()
+md = Markdown(MARKDOWN)
+console.print(md)
+```
+
+
