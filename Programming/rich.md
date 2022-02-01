@@ -365,3 +365,108 @@ code = Syntax.from_path("./code.py" , background_color="rgb(255,255,255)")
 ```
 
 
+# Tables
+Rich’s [`Table`](https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table "rich.table.Table") class offers a variety of ways to render tabular data to the terminal.
+
+To render a table, construct a [`Table`](https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table "rich.table.Table") object, add columns with [`add_column()`](https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table.add_column "rich.table.Table.add_column"), and rows with [`add_row()`](https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table.add_row "rich.table.Table.add_row") – then print it to the console.
+
+```Python
+from rich.console import Console
+from rich.table import Table
+
+table = Table(title="Characters From One Piece")
+
+table.add_column("Names", justify="right", style="cyan", no_wrap=True)
+table.add_column("AKA", style="magenta")
+table.add_column("Powers", justify="right", style="green")
+
+table.add_row("Luffy" , "Mugiwara" , "Rubber Body")
+table.add_row("Zoro" , "Swordsman" , "Pirate Hunter")
+table.add_row("Usopp" , "Sniper" , "Sogeking")
+table.add_row("Nami" , "Navigator" , "Cat Burglar")
+
+console = Console()
+console.print(table)
+```
+
+### Table Options
+-   `title` Sets the title of the table (text show above the table).
+-   `caption` Sets the table caption (text show below the table).
+-   `width` Sets the desired width of the table (disables automatic width calculation).
+-   `min_width` Sets a minimum width for the table.
+-   `box` Sets one of the [Box](https://rich.readthedocs.io/en/latest/appendix/box.html#appendix-box) styles for the table grid, or `None` for no grid.
+-   `safe_box` Set to `True` to force the table to generate ASCII characters rather than unicode.
+-   `padding` A integer, or tuple of 1, 2, or 4 values to set the padding on cells.
+-   `collapse_padding` If True the padding of neighboring cells will be merged.
+-   `pad_edge` Set to False to remove padding around the edge of the table.
+-   `expand` Set to True to expand the table to the full available size.
+-   `show_header` Set to True to show a header, False to disable it.
+-   `show_footer` Set to True to show a footer, False to disable it.
+-   `show edge` Set to False to disable the edge line around the table.
+-   `show_lines` Set to True to show lines between rows as well as header / footer.
+-   `leading` Additional space between rows.
+-   `style` A Style to apply to the entire table, e.g. "on blue".
+-   `row_styles` Set to a list of styles to style alternating rows. e.g. `["dim", ""]` to create _zebra stripes_
+-   `header_style` Set the default style for the header.
+-   `footer_style` Set the default style for the footer.
+-   `border style` Set a style for border characters.
+-   `title_style` Set a style for the title.
+-   `caption_style` Set a style for the caption.
+-   `title_justify` Set the title justify method (“left”, “right”, “center”, or “full”)
+-   `caption_justify` Set the caption justify method (“left”, “right”, “center”, or “full”)
+-   `highlight` Set to True to enable automatic highlighting of cell contents.
+
+### Border Styles
+You can set the border style by importing one of the preset `Box` objects and setting the `box` argument in the table constructor.
+Here’s an example:
+```Python
+from rich import box
+table = Table(title="Star Wars Movies", box=box.MINIMAL_DOUBLE_HEAD)
+```
+See [Box](https://rich.readthedocs.io/en/latest/appendix/box.html#appendix-box) for other box styles.
+**You can also set `box=None` to remove borders entirely.**
+
+### Grids
+The Table class can also make a great layout tool. If you disable headers and borders you can use it to position content within the terminal. The alternative constructor [`grid()`](https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table.grid "rich.table.Table.grid") can create such a table for you.
+For instance, the following code displays two pieces of text aligned to both the left and right edges of the terminal on a single line:
+```Python
+from rich import print
+from rich.table import Table
+
+grid = Table.grid(expand=True)
+grid.add_column()
+grid.add_column(justify="right")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")
+
+print(grid)
+```
+
+
+# Tree
+Rich has a [`Tree`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree "rich.tree.Tree") class which can generate a tree view in the terminal.Each branch of the tree can have a label which may be text or any other Rich renderable.
+```bash
+python -m rich.tree
+```
+With only a single `Tree` instance this will output nothing more than the text “Rich Tree”. Things get more interesting when we call [`add()`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add "rich.tree.Tree.add") to add more branches to the Tree. The following code adds two more branches:
+
+```Python
+tree.add("foo")
+tree.add("bar")
+print(tree)
+```
+
+The tree will now have two branches connected to the original tree with guide lines.
+When you call [`add()`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add "rich.tree.Tree.add") a new Tree instance is returned. You can use this instance to add more branches to, and build up a more complex tree..
+
+```Python
+baz_tree = tree.add("baz")
+baz_tree.add("[red]Red").add("[green]Green").add("[blue]Blue")
+print(tree)
+```
+
+### Tree Styles
+The Tree constructor and [`add()`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add "rich.tree.Tree.add") method allows you to specify a `style` argument which sets a style for the entire branch, and `guide_style` which sets the style for the guide lines. These styles are inherited by the branches and will apply to any sub-trees as well.
+If you set `guide_style` to bold, Rich will select the thicker variations of unicode line characters. Similarly, if you select the “underline2” style you will get double line style of unicode characters.
+
+
+
