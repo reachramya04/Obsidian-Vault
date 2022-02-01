@@ -253,4 +253,75 @@ md = Markdown(MARKDOWN)
 console.print(md)
 ```
 
+Markdown can also be rendered from files.
+Here's an example:
+```Python
+from rich.markdown import Markdown 
+from rich.console import Console
+
+with open("/hdd/Obsidian/JavetsM/Programming/rich.md") as file:
+    md = Markdown(file.read())
+console = Console()
+console.print(md)
+```
+
+
+
+# Padding
+The [`Padding`](https://rich.readthedocs.io/en/latest/reference/padding.html#rich.padding.Padding "rich.padding.Padding") class may be used to add whitespace around text or other renderable. The following example will print the word “Hello” with a padding of 1 character, so there will be a blank line above and below, and a space on the left and right edges:
+```Python
+from rich import print
+from rich.padding import Padding
+test = Padding("Hello", 1)
+print(test)
+```
+
+A tuple of 2 values sets the top/bottom and left/right padding, whereas a tuple of 4 values sets the padding for top, right, bottom, and left sides.
+Here's an example:
+```Python
+from rich import print
+from rich.padding import Padding
+test = Padding("Hello", (2, 4))
+test2 = Padding("Hello" , (2, 4 , 2 , 4))
+print(test)
+print(test2)
+```
+
+The Padding class can also accept a `style` argument which applies a style to the padding and contents, and an `expand` switch which can be set to False to prevent the padding from extending to the full width of the terminal.
+Here's an example:
+```Python
+from rich import print
+from rich.padding import Padding
+test = Padding("Hello", (2, 4), style="on blue", expand=False)
+test = Padding("Hello", (2, 4) , style="on magenta")
+print(test)
+```
+
+
+# Panel
+To draw a border around text or other renderable, construct a [`Panel`](https://rich.readthedocs.io/en/latest/reference/panel.html#rich.panel.Panel "rich.panel.Panel") with the renderable as the first positional argument.
+Here’s an example:
+```Python
+from rich import print
+from rich.panel import Panel
+print(Panel("Hello, [red]World!"))
+```
+
+You can change the style of the panel by setting the [box](https://rich.readthedocs.io/en/latest/appendix/box.html#appendix-box) argument to the Panel constructor.
+Rich has a number of constants that set the box characters used to draw tables and panels. To select a box style import one of the constants below from `rich.box`
+```bash
+python -m rich.box
+```
+
+Panels will extend to the full width of the terminal. You can make panel _fit_ the content by setting `expand=False` on the constructor, or by creating the Panel with [`fit()`](https://rich.readthedocs.io/en/latest/reference/panel.html#rich.panel.Panel.fit "rich.panel.Panel.fit").
+For example:
+```Python
+from rich import print
+from rich.panel import Panel
+print(Panel.fit("Hello, [red]World!"))
+print(Panel("Hello, [red]World!" , expand=False))
+```
+
+
+
 
