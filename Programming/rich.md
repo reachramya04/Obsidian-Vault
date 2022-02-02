@@ -236,6 +236,7 @@ The [`Confirm`](https://rich.readthedocs.io/en/latest/reference/prompt.html#rich
 # Markdown
 Rich can render Markdown to the console. To render markdown, construct a [`Markdown`](https://rich.readthedocs.io/en/latest/reference/markdown.html#rich.markdown.Markdown "rich.markdown.Markdown") object then print it to the console.
 Here’s an example of use:
+
 ```Python
 MARKDOWN = """
 # This is an h1
@@ -469,4 +470,4 @@ The Tree constructor and [`add()`](https://rich.readthedocs.io/en/latest/referen
 If you set `guide_style` to bold, Rich will select the thicker variations of unicode line characters. Similarly, if you select the “underline2” style you will get double line style of unicode characters.
 
 
-# Something
+

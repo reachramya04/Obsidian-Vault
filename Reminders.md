@@ -1,2 +1,2 @@
-- [ ] Do chemistry homework :// (@2022-02-01 00:32)
+- [x] Do chemistry homework :// (@2022-02-01 00:32)
 
