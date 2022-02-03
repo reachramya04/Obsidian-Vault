@@ -63,5 +63,10 @@ localectl
 ```
 Type this and set both the values to *us*
 
+# laggy discord
+**Fix**
+https://wiki.archlinux.org/title/Discord#Lagging_when_scrolling_through_your_guilds
+
+
 
 

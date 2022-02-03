@@ -29,3 +29,4 @@ if __name__ == "__main__":
 # CLI Argument
 Parameters passed in some specific order to the CLI application. By default, they are _required_.
 **Note** : CLI arguments are different from CLI options
+
