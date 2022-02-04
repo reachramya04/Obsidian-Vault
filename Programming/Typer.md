@@ -30,3 +30,54 @@ if __name__ == "__main__":
 Parameters passed in some specific order to the CLI application. By default, they are _required_.
 **Note** : CLI arguments are different from CLI options
 
+Example:
+```bash
+ls
+```
+It would list all the directories present in the current directory.
+
+### Add an argument
+Example:
+```bash
+rm file_name
+```
+Here `file_name` is the argument for the `rm` (remove command)
+
+Python code:
+```python
+import typer
+
+app = typer.Typer()
+@app.command()
+def hello(string:str):
+	print(f"Hello {string}")
+
+if __name__ == "__main__":
+	app()
+```
+
+# CLI Options
+CLI parameters passed to the CLI application with a specific name.
+Example:
+```bash
+ls --help
+```
+The main visual difference between a _CLI option_ and and a _CLI argument_ is that the _CLI option_ has `--` prepended to the name, like in `--help`.
+
+Python Code:
+```python
+import typer
+
+app = typer.Typer()
+@app.command()
+def hello(name:str = 'World'):
+	if string == "World":
+		print("Hello World")
+	else:
+		print(f"Hello {name}")
+
+if __name__ == "__main__":
+	app()
+```
+
+
