@@ -71,7 +71,7 @@ import typer
 app = typer.Typer()
 @app.command()
 def hello(name:str = 'World'):
-	if string == "World":
+	if name == "World":
 		print("Hello World")
 	else:
 		print(f"Hello {name}")
@@ -80,4 +80,5 @@ if __name__ == "__main__":
 	app()
 ```
 
+Here `name` is an option which lets the user add in their name to the hello command.
 
