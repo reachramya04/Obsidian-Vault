@@ -82,3 +82,89 @@ if __name__ == "__main__":
 
 Here `name` is an option which lets the user add in their name to the hello command.
 
+
+# Terminating CLI 
+There are some cases where you might want to terminate a command at some point, and stop all subsequent execution.
+It could be that your code determined that the program completed successfully, or it could be an operation aborted.
+
+To stop or abort the execution of the program raise a `Typer.exit()` exception.
+Here's an example:
+```python
+import typer
+
+app = typer.Typer()
+passwords = {"gmail" : "Yeetus1234" , "github" : "Feetus1234" , "discord" : "G sus1234"}
+
+@app.command()
+def mknewpass(acc : str , new_pass : str):
+	if new_pass in passwords.values():
+		print("The password already exists")
+		raise typer.Exit()
+	else:
+		passwords[acc] = new_pass 
+
+if __name__ == "__main__":
+	app()
+```
+
+
+# Optional CLI Arguments 
+By default CLI options are **optional** and CLI arguments are **required**.
+Again, that's how they work _by default_, and that's the convention in many CLI programs and systems.
+But you can change that.
+In fact, it's very common to have **optional** _CLI arguments_, it's way more common than having **required** _CLI options_.
+
+Example: 
+```bash
+ls ./dir
+```
+Here `dir` is an optional argument.
+The above command is used to list the sub-directories within `dir`.
+If `dir` isn't passed to `ls` then it defaults to the current directory.
+
+### CLI Argument Declaration
+Now let's see an alternative way to create the same _CLI argument_:
+```python
+import typer
+
+app = typer.Typer()
+passwords = {"gmail" : "Yeetus1234" , "github" : "Feetus1234" , "discord" : "G sus1234"}
+
+@app.command()
+def mknewpass(acc : str = typer.Argument(), new_pass : str = typer.Argument()):
+	if new_pass in passwords.values():
+		print("The password already exists")
+		raise typer.Exit()
+	else:
+		passwords[acc] = new_pass 
+
+if __name__ == "__main__":
+	app()
+```
+
+Before `acc` and `new_pass` were required as they didnt have default values.
+But now as `typer.Argument()` is the "default value" of the function's parameter, it would mean that "it is no longer required" (in Python terms).
+**To make the value required** we can pass in `...` in `typer.Argument(...)`
+
+### Alternative Optional CLI Argument Declaration
+To make a _CLI argument_ optional, use `typer.Argument()` and pass a different "default" as the first parameter to `typer.Argument()`, for example `None`:
+```python
+import typer
+
+app = typer.Typer()
+passwords = {"gmail" : "Yeetus1234" , "github" : "Feetus1234" , "discord" : "G sus1234"}
+
+@app.command()
+def mknewpass(acc : str = typer.Argument(None), new_pass : str = typer.Argument(None)):
+	if new_pass in passwords.values():
+		print("The password already exists")
+		raise typer.Exit()
+	elif None in [acc,new_pass]:
+		print("No input  passed in")
+		raise typer.Exit()
+	else:
+		passwords[acc] = new_pass 
+
+if __name__ == "__main__":
+	app()
+```
