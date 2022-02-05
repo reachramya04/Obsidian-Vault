@@ -4,4 +4,8 @@ It is a CLI movie streaming client which works on yts.mx API.
 ## Requirements
 - requests
 - rich
+- subprocess
+- webtorrent-cli 
+
+
 
