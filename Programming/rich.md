@@ -211,7 +211,7 @@ Here's an example:
 >>> from rich.prompt import Prompt
 >>> name = Prompt.ask("Enter your name", default="Roronoa Zoro")
 ```
->  `>>>`  Enter your name <font color="cyan" style="font-weight:bold">(Roronoa Zoro)</font> :
+>  `>>>`  Enter your name <font color="cyan" style="font-weight:bold">(Roronoa Zoro)</font> : 
 
 ### Choices
 If you supply a list of choices, the prompt will loop until the user enters one of the choices.
