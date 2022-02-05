@@ -163,8 +163,13 @@ def mknewpass(acc : str = typer.Argument(None), new_pass : str = typer.Argument(
 		print("No input  passed in")
 		raise typer.Exit()
 	else:
-		passwords[acc] = new_pass 
+		passwords[acc] = new_pass
+		print(passwords)
 
 if __name__ == "__main__":
 	app()
 ```
+
+Here we pass in a default value to `typer.Argument()` which is `None` .
+If no input is given the value is set to `None`.
+This gives us the functionality to set a default value for an optional argument.
