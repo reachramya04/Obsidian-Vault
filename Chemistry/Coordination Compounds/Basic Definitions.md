@@ -42,3 +42,63 @@ Ex : $\ce{K4[Fe(CN)6]}$
 				The ligand having two donor sites but it attacks from only one site.
 	b) Chelate : 
 					Ligands which after getting attacked to a central atom makes the complex stable.
+
+
+# IUPAC Naming 
+**Ligands :** ide , ate oxi is replaced by ido , ato , oxo respectively.
+
+Example:
+Cl - Choloro OR Chlorido 
+Br - Bromo OR Bromido
+
+For ligands with positive charge : 
+	$\ce{NO+}$
+	$\ce{NH2NH3^+}$
+	$\ce{NO2^+}$
+
+For neutral ligands : 
+	$\ce{C6H5N}$
+	$\ce{(C6H5)_3P}$
+	$\ce{CS}$
+	
+For ambidentate ligands: 
+	$\ce{NO2^-}$
+	$\ce{ONO^-}$
+
+### Examples (Formula to Names)
+$\ce{[Al(H2O)6]Br_3}$
+$Hexa - aqua - aluminium -(III) -bromide$
+
+$\ce{[Cr(NH3)6]Cl3}$
+$Hexa ammine chromium (III) chloride$
+
+$\ce{K_3[FeF6]}$
+$Potassium hexa fluoro ferrate (III)$
+
+### Examples (Names to Formulas)
+$Hexa ammine cobalt (III) chloride$
+$\ce{[Co(NH3)6]Cl3}$
+
+$Diammine tetra bromo platinum (VI) bromide$
+$\ce{[Pt (NH3)_2 (Br)_4]Br_2}$
+
+$Tetra aqua cadmium (II) nitrate$
+$\ce{[Cd(H2O)_4]NO_3}$
+
+
+# Valence Bond Theory (VBT)
+## Geometry 
+### Tetrahedral ($\ce{AB_4}$)
+#### Trigonal Pyramidal ($\ce{AB_3l}$)
+#### Bent- V ($\ce{AB_2l_2}$)
+### Octahedral ($\ce{AB_6}$)
+#### Square Planar ($\ce{AB_4l_2}$)
+#### Square Pyramidal ($\ce{AB_6}$)
+
+
+
+
+
+
+
+
