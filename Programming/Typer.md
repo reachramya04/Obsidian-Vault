@@ -56,7 +56,7 @@ if __name__ == "__main__":
 	app()
 ```
 
-# CLI Options
+### CLI Options
 CLI parameters passed to the CLI application with a specific name.
 Example:
 ```bash
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 Here `name` is an option which lets the user add in their name to the hello command.
 
 
-# Terminating CLI 
+### Terminating CLI 
 There are some cases where you might want to terminate a command at some point, and stop all subsequent execution.
 It could be that your code determined that the program completed successfully, or it could be an operation aborted.
 
@@ -108,7 +108,7 @@ if __name__ == "__main__":
 ```
 
 
-# Optional CLI Arguments 
+### Optional CLI Arguments 
 By default CLI options are **optional** and CLI arguments are **required**.
 Again, that's how they work _by default_, and that's the convention in many CLI programs and systems.
 But you can change that.
@@ -122,7 +122,7 @@ Here `dir` is an optional argument.
 The above command is used to list the sub-directories within `dir`.
 If `dir` isn't passed to `ls` then it defaults to the current directory.
 
-### CLI Argument Declaration
+#### CLI Argument Declaration
 Now let's see an alternative way to create the same _CLI argument_:
 ```python
 import typer
@@ -146,7 +146,7 @@ Before `acc` and `new_pass` were required as they didnt have default values.
 But now as `typer.Argument()` is the "default value" of the function's parameter, it would mean that "it is no longer required" (in Python terms).
 **To make the value required** we can pass in `...` in `typer.Argument(...)`
 
-### Alternative Optional CLI Argument Declaration
+#### Make an optional CLI Argument 
 To make a _CLI argument_ optional, use `typer.Argument()` and pass a different "default" as the first parameter to `typer.Argument()`, for example `None`:
 ```python
 import typer
@@ -173,3 +173,18 @@ if __name__ == "__main__":
 Here we pass in a default value to `typer.Argument()` which is `None` .
 If no input is given the value is set to `None`.
 This gives us the functionality to set a default value for an optional argument.
+### CLI Arguments with Defaults 
+We can also use the same `typer.Argument()` to set a default value.
+That way the _CLI argument_ will be optional _and also_ have a default value.
+
+#### Optional CLI Argument with Default
+```python
+import typer 
+def main(name: str = typer.Argument("G sus")): 
+	typer.echo(f"Hello {name}") 
+if __name__ == "__main__": 
+	typer.run(main)
+```
+
+#### Dynamic Default Value 
+
