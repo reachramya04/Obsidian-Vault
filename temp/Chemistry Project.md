@@ -52,23 +52,49 @@ $$\ce{\underset{Ferric Oxide}{Fe2O3} + xH2O -> \underset{Hydrated Ferric Oxide (
 
 
 # Apparatus
-**1.** Boiling tubes
-**2.** Rubber stopper
-**3.** Iron nails
-**4.** Burner
-**5.** Test tube, Holder & Stand
+**i)** Boiling tubes
+**ii)** Rubber stopper
+**iii)** Iron nails
+**iv)** Burner
+**v)** Test tube, Holder & Stand
 
 
 # Chemicals Required
-**1.** Distilled Water
-**2.** Dilute HCL
-**3.** Dilute NaCl Solution
-**4.** Anhydrous Calcium Chloride
-**5.** Cotton
-**6.** Mustard Oil
+**i)** Distilled Water
+**ii)** Dilute HCL
+**iii)** Dilute NaCl Solution
+**iv)** Anhydrous Calcium Chloride
+**v)** Cotton
+**vi)** Mustard Oil
 
 
 # Procedure 
+**i)** Take five dry test tubes and mark them A, B, C, D and E. Take 10 pieces of iron nails free from rust.
+**ii)** Moist two iron nails with distilled water and slide it in the test tube marked ‘A’ close the mouth of the tube.
+**iii)** In the test tube ‘B’ take 5 ml of water and boil it so as to remove dissolved air. Slide two nails in this test tube and few drops of mustard oil so as to cover the surface of H2O.
+**iv)** In the test tube ‘C’ take 5 ml of dilute NaCl solution. Slide two nails and close it.
+**v)** In the test tube ‘O’ add two pieces of hydrous calcium chloride and cover it with thin layer of cotton. Again slide 3 nails and close it.
+**vi)** leave these test tubes as such for 4-5 days and observe carefully in which of the tubes rust is formed.
+
+
+# Observations
+**i)** It is observed that rusting takes place in the test tube A and C where as not in B, D, and E.
+**ii)** Moisture, oxygen and carbon-dioxide present in air are responsible for rusting.
+**iii)** It appears that during a compound of iron is formed by the combination of iron oxygen, carbon-dioxide and water.
+**iv)** It is observed that when the process was prolonged in the presence of moist air and acids, rusting spreads quickly.
+
+
+# Methods Of Prevention 
+**i)** Rusting of iron can be prevented by covering its surface with paints, grease and lacquers.
+**ii)** Galvanisation is one of widely practical methods used for the prevention of rusting. The layer of Zinc on the surface of iron, when comes in contact with moisture, oxygen and carbon-dioxide in air, ferrous a protective invisible thin layer of basic zinc carbonate $\ce{ZnCO3}$ due to which the galvanised iron sheets lose their lusture and also tends to protect it from further corrosion.
+**iii)** Rusting of iron can also be prevented by coating its surface with iron (II, III) oxide $\ce{Fe3O4}$ or iron (III) phosphate $\ce{FePo4}$.
+
+
+# Conclusion
+**(i)** Rust is formed by prolonged action of water oxygen and carbon-dioxide on an iron under other suitable conditions.
+**(ii)** Moisture, Oxygen and carbon-dioxide present in air, all responsible for rusting.
+
+
 
 
 
