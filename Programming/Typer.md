@@ -247,3 +247,39 @@ def main(name: str = typer.Argument("World", help="Who to greet")):
 	typer.echo(f"Hello {name}") 
 if __name__ == "__main__": typer.run(main)
 ```
+
+#### Custom Default String 
+You can use the same `show_default` to pass a custom string (instead of a `bool`) to customize the default value to be shown in the help text:
+```python 
+import typer 
+def main( name: str = typer.Argument( "Wade Wilson", help="Who to greet", 
+show_default="Deadpoolio the amazing's name" ) ): 
+	typer.echo(f"Hello {name}") 
+
+if __name__ == "__main__": 
+	typer.run(main)
+```
+
+#### Custom help name (`metavar`)
+You can also customize the text used in the generated help text to represent a _CLI argument_.
+By default, it will be the same name you declared, in uppercase letters.
+So, if you declare it as:
+```
+name: str
+``` 
+
+It will be shown as:
+```
+NAME
+``` 
+
+But you can customize it with the `metavar` parameter for `typer.Argument()`.
+```python 
+import typer 
+def main(name: str = typer.Argument("World", metavar="✨username✨")): 
+	typer.echo(f"Hello {name}") 
+
+if __name__ == "__main__": 
+	typer.run(main)
+```
+
