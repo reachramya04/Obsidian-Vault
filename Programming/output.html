@@ -1,0 +1,415 @@
+<h1>Introduction</h1>
+<p>Rich is a Python library for <em>rich</em> text and beautiful formatting in the terminal.</p>
+<p>The <a href="https://rich.readthedocs.io/en/latest/">Rich API</a> makes it easy to add color and style to terminal output. Rich can also render pretty tables, progress bars, markdown, syntax highlighted source code, tracebacks, and more — out of the box.</p>
+<h1>Installing</h1>
+<p><code>bash
+pip install rich</code>
+<strong>or</strong>
+<code>bash
+python -m pip install rich</code></p>
+<p><strong>For an example run</strong>
+<code>bash
+python -m rich</code></p>
+<h1>Getting Started</h1>
+<h3>rich print function</h3>
+<p>To effortlessly add rich output to your application, you can import the <a href="https://rich.readthedocs.io/en/latest/introduction.html#quick-start">rich print</a> method, which has the same signature as the builtin Python function.</p>
+<p><strong>Note :</strong> The builtin print function will be overridden with rich print function
+```python 
+from rich import print</p>
+<p>print("Hello, [bold magenta]World[/bold magenta]!")
+```</p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  Hello <font color="magenta"  style = "font-weight:bold">World!</font></p>
+</blockquote>
+<h3>rich Console</h3>
+<p>For more control over rich terminal content, import and construct a <a href="https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console">Console</a> object.</p>
+<p>```python
+from rich.console import Console</p>
+<p>console = Console()
+```</p>
+<p>The Console object has a <code>print</code> method which has an intentionally similar interface to the builtin <code>print</code> function. Here's an example of use:</p>
+<p><code>python
+console.print("Hello", "World!")</code></p>
+<p>As you might expect, this will print <code>"Hello World!"</code> to the terminal. Note that unlike the builtin <code>print</code> function, Rich will word-wrap your text to fit within the terminal width.</p>
+<p>There are a few ways of adding color and style to your output. You can set a style for the entire output by adding a <code>style</code> keyword argument. Here's an example:
+<code>python
+console.print("Hello", "World!", style="bold red")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  <font color="red" style="font-weight:bold">Hello World!</font></p>
+</blockquote>
+<h3>rich Inspect function</h3>
+<p>Rich has an <a href="https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect">inspect</a> function which can produce a report on any Python object, such as class, instance, or builtin.
+<code>python 
+my_list = ["foo", "bar"]
+from rich import inspect
+inspect(my_list, methods=True)</code>
+![[Pasted image 20220127002006.png]]</p>
+<h1>Styles</h1>
+<p>In various places in the Rich API you can set a “style” which defines the color of the text and various attributes such as bold, italic etc. A style may be given as a string containing a <em>style definition</em> or as an instance of a <a href="https://rich.readthedocs.io/en/latest/reference/style.html#rich.style.Style" title="rich.style.Style"><code>Style</code></a> class.</p>
+<h3>Defining Styles</h3>
+<ul>
+<li>
+<p>A style definition is a string containing one or more words to set colors and attributes.
+To specify a foreground color use one of the 256 <a href="https://rich.readthedocs.io/en/latest/appendix/colors.html#appendix-colors">Standard Colors</a>. 
+For example, to print “Hello” in magenta:
+<code>python 
+console.print("Hello", style="magenta")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  <font color="magenta">Hello</font></p>
+</blockquote>
+</li>
+<li>
+<p>Alteratively you can use a CSS-like syntax to specify a color with a “#” followed by three pairs of hex characters, or in RGB form with three decimal integers.
+<code>python
+console.print("Hello", style="#af00ff")
+console.print("Hello", style="rgb(175,0,255)")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  <font color="#af00ff">Hello</font>
+<code>&gt;&gt;&gt;</code>  <font color="#af00ff">Hello</font></p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Note :</strong> Some terminals only support 256 colors. Rich will attempt to pick the closest color it can if your color isn’t available.</p>
+<ul>
+<li>
+<p>You can also set a background color , precede the color with word "on ".
+<code>python
+console.print("DANGER!", style="red on white")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  <font color="red" style="background-color:white">DANGER!</font></p>
+</blockquote>
+</li>
+<li>
+<p><strong>You can set a style attribute by adding one or more of the following words:</strong></p>
+<ul>
+<li><code>"bold"</code> or <code>"b"</code> for bold text.</li>
+<li><code>"blink"</code> for text that flashes (use this one sparingly).</li>
+</ul>
+</li>
+<li>
+<p><code>"blink2"</code> for text that flashes rapidly (not supported by most terminals).</p>
+<ul>
+<li><code>"conceal"</code> for <em>concealed</em> text (not supported by most terminals).</li>
+<li><code>"italic"</code> or <code>"i"</code> for italic text (not supported on Windows).</li>
+<li><code>"reverse"</code> or <code>"r"</code> for text with foreground and background colors reversed.</li>
+<li><code>"strike"</code> or <code>"s"</code> for text with a line through it.    </li>
+<li><code>"underline"</code> or <code>"u"</code> for underlined text.</li>
+</ul>
+</li>
+<li>
+<p>Styles may be negated by prefixing the attribute with the word “not”. This can be used to turn off styles if they overlap. For example:
+<code>python
+console.print("foo [not bold]bar[/not bold] baz", style="bold")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>   <strong>foo</strong> bar <strong>baz</strong></p>
+</blockquote>
+</li>
+<li>
+<p>To add a link to a style, the definition should contain the word <code>"link"</code> followed by a URL. The following example will make a clickable link:
+<code>python
+console.print("[yellow underline]Google", style="link https://google.com")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>   <a href="www.google.com">Google</a></p>
+</blockquote>
+</li>
+</ul>
+<h3>Style Themes</h3>
+<p>Rich provides a <a href="https://rich.readthedocs.io/en/latest/reference/theme.html#rich.theme.Theme" title="rich.theme.Theme"><code>Theme</code></a> class which you can use to define custom styles that you can refer to by name. That way you only need to update your styles in one place.</p>
+<p>To use a style theme, construct a <a href="https://rich.readthedocs.io/en/latest/reference/theme.html#rich.theme.Theme" title="rich.theme.Theme"><code>Theme</code></a> instance and pass it to the <a href="https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console" title="rich.console.Console"><code>Console</code></a> constructor. 
+Here’s an example:
+<code>Python
+from rich.console import Console
+from rich.theme import Theme
+custom_theme = Theme({
+    "info": "dim cyan",
+    "warning": "magenta",
+    "danger": "bold red"
+})
+console = Console(theme=custom_theme)
+console.print("This is information", style="info")
+console.print("[warning]The pod bay doors are locked[/warning]")
+console.print("Something terrible happened!", style="danger")</code></p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  <font color="cyan">This is information</font>
+ <code>&gt;&gt;&gt;</code>  <font color="magenta" >The pod bay doors are locked</font>
+ <code>&gt;&gt;&gt;</code>  <font color="red"  style = "font-weight:bold">Something terrible happened</font></p>
+</blockquote>
+<h3>bbcode Styles</h3>
+<p>Styles can also be added to strings with bbcode like syntax .
+Here's an example:
+```Python
+from rich.console import Console</p>
+<p>console = Console()
+console.print("Initiating [bold cyan]drop[/bold cyan] sequence in....")
+```</p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  Initiating <font color = "cyan" style="font-weight:bold">drop</font> sequence in...  </p>
+</blockquote>
+<h1>Emojis</h1>
+<p>To insert an emoji in to console output place the name between two colons.
+Here's an example:
+```python 
+from rich.console import Console</p>
+<p>console = Console()
+console.print("The logo of dracula theme is :vampire:")
+```</p>
+<blockquote>
+<p><code>&gt;&gt;&gt;</code>  The logo of dracula theme is 🧛</p>
+</blockquote>
+<h1>Tracebacks</h1>
+<p>Rich can render Python tracebacks with syntax highlighting and formatting. Rich tracebacks are easier to read and show more code than standard Python tracebacks.</p>
+<p>To see an example of a Rich traceback, running the following command:
+<code>bash
+python -m rich.traceback</code></p>
+<h3>Printing Tracebacks</h3>
+<p>The <a href="https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console.print_exception" title="rich.console.Console.print_exception"><code>print_exception()</code></a> method will print a traceback for the current exception being handled.
+Here’s an example:
+```Python
+from rich.console import Console
+console = Console()</p>
+<p>try:
+    do_something()
+except Exception:
+    console.print_exception(show_locals=True)
+```</p>
+<h3>Traceback Handler</h3>
+<p>Rich can be installed as the default traceback handler so that all uncaught exceptions will be rendered with highlighting. 
+Here’s how:
+<code>Python
+from rich.traceback import install
+install(show_locals=True)</code></p>
+<h1>Prompt</h1>
+<p>Rich has a number of <a href="https://rich.readthedocs.io/en/latest/reference/prompt.html#rich.prompt.Prompt" title="rich.prompt.Prompt"><code>Prompt</code></a> classes which ask a user for input and loop until a valid response is received . Here’s a simple example:
+```Python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from rich.prompt import Prompt
+name = Prompt.ask("Enter your name")
+<code>``</code>&gt;&gt;&gt;`  Enter your name </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>It might look pretty similar to the <code>input()</code> function , but it also offers many other functionalities that <code>input()</code> function doesn't have.</p>
+<h3>Default Values</h3>
+<p>You can set a default value which will be returned if the user presses return without entering any text.
+Here's an example:
+```Python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from rich.prompt import Prompt
+name = Prompt.ask("Enter your name", default="Roronoa Zoro")
+<code>``</code>&gt;&gt;&gt;`  Enter your name <font color="cyan" style="font-weight:bold">(Roronoa Zoro)</font> : </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3>Choices</h3>
+<p>If you supply a list of choices, the prompt will loop until the user enters one of the choices.
+Here's an example:
+```Python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from rich.prompt import Prompt
+name = Prompt.ask("Enter your name", choices=["Luffy", "Zoro", "Brooke"], default="Unknown")
+<code>``</code>&gt;&gt;&gt;`  Enter your name <font color="magenta" style="font-weight:bold;">[Luffy , Zoro , Brooke]</font>  <font color="cyan" style="font-weight:bold">(Unknown)</font> :</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>In addition to <code>Prompt</code> which returns strings, you can also use <code>IntPrompt</code> which asks the user for an integer, and <code>FloatPrompt</code> for floats.</p>
+<h3>Confirm</h3>
+<p>The <a href="https://rich.readthedocs.io/en/latest/reference/prompt.html#rich.prompt.Confirm" title="rich.prompt.Confirm"><code>Confirm</code></a> class is a specialized prompt which may be used to ask the user a simple yes / no question. Here’s an example:
+```Python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from rich.prompt import Confirm
+is_rich_great = Confirm.ask("Do you like rich?")
+<code>``</code>&gt;&gt;&gt;`  Do you like rich? <font color="magenta" style="font-weight:bold;">[y,n]</font> : </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1>Markdown</h1>
+<p>Rich can render Markdown to the console. To render markdown, construct a <a href="https://rich.readthedocs.io/en/latest/reference/markdown.html#rich.markdown.Markdown" title="rich.markdown.Markdown"><code>Markdown</code></a> object then print it to the console.
+Here’s an example of use:</p>
+<p>```Python
+MARKDOWN = """</p>
+<h1>This is an h1</h1>
+<p>Rich can do a pretty <em>decent</em> job of rendering markdown.</p>
+<ol>
+<li>This is a list item</li>
+<li>This is another list item
+"""
+from rich.console import Console
+from rich.markdown import Markdown</li>
+</ol>
+<p>console = Console()
+md = Markdown(MARKDOWN)
+console.print(md)
+```</p>
+<p>Markdown can also be rendered from files.
+Here's an example:
+```Python
+from rich.markdown import Markdown 
+from rich.console import Console</p>
+<p>with open("/hdd/Obsidian/JavetsM/Programming/rich.md") as file:
+    md = Markdown(file.read())
+console = Console()
+console.print(md)
+```</p>
+<h1>Padding</h1>
+<p>The <a href="https://rich.readthedocs.io/en/latest/reference/padding.html#rich.padding.Padding" title="rich.padding.Padding"><code>Padding</code></a> class may be used to add whitespace around text or other renderable. The following example will print the word “Hello” with a padding of 1 character, so there will be a blank line above and below, and a space on the left and right edges:
+<code>Python
+from rich import print
+from rich.padding import Padding
+test = Padding("Hello", 1)
+print(test)</code></p>
+<p>A tuple of 2 values sets the top/bottom and left/right padding, whereas a tuple of 4 values sets the padding for top, right, bottom, and left sides.
+Here's an example:
+<code>Python
+from rich import print
+from rich.padding import Padding
+test = Padding("Hello", (2, 4))
+test2 = Padding("Hello" , (2, 4 , 2 , 4))
+print(test)
+print(test2)</code></p>
+<p>The Padding class can also accept a <code>style</code> argument which applies a style to the padding and contents, and an <code>expand</code> switch which can be set to False to prevent the padding from extending to the full width of the terminal.
+Here's an example:
+<code>Python
+from rich import print
+from rich.padding import Padding
+test = Padding("Hello", (2, 4), style="on blue", expand=False)
+test = Padding("Hello", (2, 4) , style="on magenta")
+print(test)</code></p>
+<h1>Panel</h1>
+<p>To draw a border around text or other renderable, construct a <a href="https://rich.readthedocs.io/en/latest/reference/panel.html#rich.panel.Panel" title="rich.panel.Panel"><code>Panel</code></a> with the renderable as the first positional argument.
+Here’s an example:
+<code>Python
+from rich import print
+from rich.panel import Panel
+print(Panel("Hello, [red]World!"))</code></p>
+<p>You can change the style of the panel by setting the <a href="https://rich.readthedocs.io/en/latest/appendix/box.html#appendix-box">box</a> argument to the Panel constructor.
+Rich has a number of constants that set the box characters used to draw tables and panels. To select a box style import one of the constants below from <code>rich.box</code>
+<code>bash
+python -m rich.box</code></p>
+<p>Panels will extend to the full width of the terminal. You can make panel <em>fit</em> the content by setting <code>expand=False</code> on the constructor, or by creating the Panel with <a href="https://rich.readthedocs.io/en/latest/reference/panel.html#rich.panel.Panel.fit" title="rich.panel.Panel.fit"><code>fit()</code></a>.
+For example:
+<code>Python
+from rich import print
+from rich.panel import Panel
+print(Panel.fit("Hello, [red]World!"))
+print(Panel("Hello, [red]World!" , expand=False))</code></p>
+<h1>Syntax</h1>
+<p>Rich can syntax highlight various programming languages with line numbers.
+To syntax highlight code, construct a <a href="https://rich.readthedocs.io/en/latest/reference/syntax.html#rich.syntax.Syntax" title="rich.syntax.Syntax"><code>Syntax</code></a> object and print it to the console.
+Here’s an example:
+```Python
+from rich.console import Console
+from rich.syntax import Syntax</p>
+<p>console = Console()
+with open("syntax.py", "r") as code_file:
+    syntax = Syntax(code_file.read(), "python")
+console.print(syntax)
+<code>You may also use the [`from_path()`](https://rich.readthedocs.io/en/latest/reference/syntax.html#rich.syntax.Syntax.from_path "rich.syntax.Syntax.from_path") alternative constructor which will load the code from disk and auto-detect the file type.</code>Python
+from rich.console import Console
+from rich.syntax import Syntax</p>
+<p>console = Console()
+syntax = Syntax.from_path("syntax.py")
+console.print(syntax)
+```</p>
+<h3>Line Numbers</h3>
+<p>If you set <code>line_numbers=True</code>, Rich will render a column for line numbers:
+<code>Python
+code = Syntax.from_path("./code.py" , line_numbers=True)</code></p>
+<h3>Themes</h3>
+<p>The Syntax constructor (and <a href="https://rich.readthedocs.io/en/latest/reference/syntax.html#rich.syntax.Syntax.from_path" title="rich.syntax.Syntax.from_path"><code>from_path()</code></a>) accept a <code>theme</code> attribute which should be the name of a <a href="https://pygments.org/styles/">Pygments theme</a>. It may also be one of the special case theme names “ansi_dark” or “ansi_light” which will use the color theme configured by the terminal.
+<code>Python
+code = Syntax.from_path("./code.py" , theme="one-dark")</code></p>
+<h3>Background Color</h3>
+<p>You can override the background color from the theme by supplying a <code>background_color</code> argument to the constructor. This should be a string in the same format a style definition accepts, .e.g “red”, “#ff0000”, “rgb(255,0,0)” etc.
+<code>Python
+code = Syntax.from_path("./code.py" , background_color="rgb(255,255,255)")</code></p>
+<h1>Tables</h1>
+<p>Rich’s <a href="https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table" title="rich.table.Table"><code>Table</code></a> class offers a variety of ways to render tabular data to the terminal.</p>
+<p>To render a table, construct a <a href="https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table" title="rich.table.Table"><code>Table</code></a> object, add columns with <a href="https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table.add_column" title="rich.table.Table.add_column"><code>add_column()</code></a>, and rows with <a href="https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table.add_row" title="rich.table.Table.add_row"><code>add_row()</code></a> – then print it to the console.</p>
+<p>```Python
+from rich.console import Console
+from rich.table import Table</p>
+<p>table = Table(title="Characters From One Piece")</p>
+<p>table.add_column("Names", justify="right", style="cyan", no_wrap=True)
+table.add_column("AKA", style="magenta")
+table.add_column("Powers", justify="right", style="green")</p>
+<p>table.add_row("Luffy" , "Mugiwara" , "Rubber Body")
+table.add_row("Zoro" , "Swordsman" , "Pirate Hunter")
+table.add_row("Usopp" , "Sniper" , "Sogeking")
+table.add_row("Nami" , "Navigator" , "Cat Burglar")</p>
+<p>console = Console()
+console.print(table)
+```</p>
+<h3>Table Options</h3>
+<ul>
+<li><code>title</code> Sets the title of the table (text show above the table).</li>
+<li><code>caption</code> Sets the table caption (text show below the table).</li>
+<li><code>width</code> Sets the desired width of the table (disables automatic width calculation).</li>
+<li><code>min_width</code> Sets a minimum width for the table.</li>
+<li><code>box</code> Sets one of the <a href="https://rich.readthedocs.io/en/latest/appendix/box.html#appendix-box">Box</a> styles for the table grid, or <code>None</code> for no grid.</li>
+<li><code>safe_box</code> Set to <code>True</code> to force the table to generate ASCII characters rather than unicode.</li>
+<li><code>padding</code> A integer, or tuple of 1, 2, or 4 values to set the padding on cells.</li>
+<li><code>collapse_padding</code> If True the padding of neighboring cells will be merged.</li>
+<li><code>pad_edge</code> Set to False to remove padding around the edge of the table.</li>
+<li><code>expand</code> Set to True to expand the table to the full available size.</li>
+<li><code>show_header</code> Set to True to show a header, False to disable it.</li>
+<li><code>show_footer</code> Set to True to show a footer, False to disable it.</li>
+<li><code>show edge</code> Set to False to disable the edge line around the table.</li>
+<li><code>show_lines</code> Set to True to show lines between rows as well as header / footer.</li>
+<li><code>leading</code> Additional space between rows.</li>
+<li><code>style</code> A Style to apply to the entire table, e.g. "on blue".</li>
+<li><code>row_styles</code> Set to a list of styles to style alternating rows. e.g. <code>["dim", ""]</code> to create <em>zebra stripes</em></li>
+<li><code>header_style</code> Set the default style for the header.</li>
+<li><code>footer_style</code> Set the default style for the footer.</li>
+<li><code>border style</code> Set a style for border characters.</li>
+<li><code>title_style</code> Set a style for the title.</li>
+<li><code>caption_style</code> Set a style for the caption.</li>
+<li><code>title_justify</code> Set the title justify method (“left”, “right”, “center”, or “full”)</li>
+<li><code>caption_justify</code> Set the caption justify method (“left”, “right”, “center”, or “full”)</li>
+<li><code>highlight</code> Set to True to enable automatic highlighting of cell contents.</li>
+</ul>
+<h3>Border Styles</h3>
+<p>You can set the border style by importing one of the preset <code>Box</code> objects and setting the <code>box</code> argument in the table constructor.
+Here’s an example:
+<code>Python
+from rich import box
+table = Table(title="Star Wars Movies", box=box.MINIMAL_DOUBLE_HEAD)</code>
+See <a href="https://rich.readthedocs.io/en/latest/appendix/box.html#appendix-box">Box</a> for other box styles.
+<strong>You can also set <code>box=None</code> to remove borders entirely.</strong></p>
+<h3>Grids</h3>
+<p>The Table class can also make a great layout tool. If you disable headers and borders you can use it to position content within the terminal. The alternative constructor <a href="https://rich.readthedocs.io/en/latest/reference/table.html#rich.table.Table.grid" title="rich.table.Table.grid"><code>grid()</code></a> can create such a table for you.
+For instance, the following code displays two pieces of text aligned to both the left and right edges of the terminal on a single line:
+```Python
+from rich import print
+from rich.table import Table</p>
+<p>grid = Table.grid(expand=True)
+grid.add_column()
+grid.add_column(justify="right")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")</p>
+<p>print(grid)
+```</p>
+<h1>Tree</h1>
+<p>Rich has a <a href="https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree" title="rich.tree.Tree"><code>Tree</code></a> class which can generate a tree view in the terminal.Each branch of the tree can have a label which may be text or any other Rich renderable.
+<code>bash
+python -m rich.tree</code>
+With only a single <code>Tree</code> instance this will output nothing more than the text “Rich Tree”. Things get more interesting when we call <a href="https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add" title="rich.tree.Tree.add"><code>add()</code></a> to add more branches to the Tree. The following code adds two more branches:</p>
+<p><code>Python
+tree.add("foo")
+tree.add("bar")
+print(tree)</code></p>
+<p>The tree will now have two branches connected to the original tree with guide lines.
+When you call <a href="https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add" title="rich.tree.Tree.add"><code>add()</code></a> a new Tree instance is returned. You can use this instance to add more branches to, and build up a more complex tree..</p>
+<p><code>Python
+baz_tree = tree.add("baz")
+baz_tree.add("[red]Red").add("[green]Green").add("[blue]Blue")
+print(tree)</code></p>
+<h3>Tree Styles</h3>
+<p>The Tree constructor and <a href="https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add" title="rich.tree.Tree.add"><code>add()</code></a> method allows you to specify a <code>style</code> argument which sets a style for the entire branch, and <code>guide_style</code> which sets the style for the guide lines. These styles are inherited by the branches and will apply to any sub-trees as well.
+If you set <code>guide_style</code> to bold, Rich will select the thicker variations of unicode line characters. Similarly, if you select the “underline2” style you will get double line style of unicode characters.</p>
