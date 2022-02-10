@@ -48,3 +48,34 @@ Ensure access to affordable reliable , sustainable and modern energy for all.
  - 3 out of 4 of them live in sub-saharan africa.
  - Energy efficiency improvement rate needs acceleration.
  - Accelerated action on modern renewable energy is needed especially in heating and transport sectors.
+
+
+# Needs For Sustainable Development 
+Sustainable development is a hard topic to nail down because it consists of a wide range of things. Due to the technicality and complexity of this topic, it’s best to check out its importance holistically to be able to grasp it easily.
+
+The population is the main factor driving up sustainable development campaigns. So, the importance of sustainable development can be viewed from this perspective:
+
+### 1. Provides Essential Human Needs
+The explosion of population means people will have to scramble for the limited life essentials like food, shelter, and water. Adequate provision of these basic needs almost entirely hinges on infrastructure capable of sustaining them for a long time.
+
+If governments insist on utilizing fossil fuel-based sources of energy instead of renewable and sustainable options, the cost and [environmental effects](https://www.conserve-energy-future.com/causes-and-effects-of-environmental-degradation.php) of supplying these basic needs would become a tall order.
+
+### 2. Agricultural Requirement
+A [growing population](https://www.conserve-energy-future.com/causes-effects-solutions-of-overpopulation.php) means agriculture must catch up. Finding ways to feed more than 3 billion people can be staggering. If the same unsustainable cultivation, planting, irrigation, spraying, and harvesting techniques are utilized in the future, they might prove to be financially burdening considering fossil fuel resources are projected to run out.
+
+Sustainable development [focuses on sustainable agricultural methods](https://www.conserve-energy-future.com/methods-and-benefits-of-sustainable-agriculture.php) such as effective seeding techniques and crop rotation to promote high yields while maintaining the integrity of the soil, which produces food for a large population.
+
+### 3. Manage Climate Change
+Climate change can be mitigated by [sustainable development practices](https://www.conserve-energy-future.com/sustainable-practices-waste-management.php). Sustainable development practices seek to reduce the use of [fossil-based sources](https://www.conserve-energy-future.com/pros-and-cons-of-fossil-fuels.php) of fuel like oil, natural gas, and coal. Fossil fuel sources of energy are unsustainable since they will deplete in the future and are responsible for the emission of greenhouse gasses.
+
+### 4. Financial Stability
+Sustainable development practices have the ability to create more financially sustainable economies across the globe. Developing countries that can’t access [fossil fuels](https://www.conserve-energy-future.com/fossilfuels.php) can leverage renewable forms of energy to power their economies.
+
+From the development of renewable energy technologies, these countries can create sustainable jobs as opposed to finite jobs based on [fossil fuel](https://www.conserve-energy-future.com/coalasfossilfuel.php) technologies.
+
+### 5. Sustain Biodiversity
+Unsustainable development and overconsumption practices greatly impact [biodiversity](https://www.conserve-energy-future.com/35-wonderful-ways-to-protect-biodiversity-that-you-need-to-know-today.php). The life ecosystem is designed in such a way that species depend on one another for survival. For instance, plants produce oxygen that humans need for respiration.
+
+Humans exhale carbon dioxide that [plants need for growth](https://www.conserve-energy-future.com/study-cigarette-butts-serious-harm-environment-hindering-plant-growth.php) and production. Unsustainable development practices like emission of [greenhouse gasses](https://www.conserve-energy-future.com/greenhouse-gases.php) in the atmosphere kill many plant species resulting in the reduction of atmospheric oxygen.
+
+This is not good for humans. Sustainable development practices encourage the use of renewable energy resources and [organic farming practices](https://www.conserve-energy-future.com/organic-farming-need-and-features.php) that do not emit any greenhouse gas to the atmosphere.
