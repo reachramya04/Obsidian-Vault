@@ -470,4 +470,10 @@ The Tree constructor and [`add()`](https://rich.readthedocs.io/en/latest/referen
 If you set `guide_style` to bold, Rich will select the thicker variations of unicode line characters. Similarly, if you select the “underline2” style you will get double line style of unicode characters.
 
 
-
+```javascript
+var foo = function (bar) { 
+	return bar++; 
+}; 
+console.log(foo(5));
+```
+H^ello
