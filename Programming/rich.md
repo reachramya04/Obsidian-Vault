@@ -56,6 +56,7 @@ console.print("Hello", "World!", style="bold red")
 >  `>>>`  <font color="red" style="font-weight:bold">Hello World!</font>
 
 ---
+
 ###  rich Inspect function
 Rich has an [inspect](https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect) function which can produce a report on any Python object, such as class, instance, or builtin.
 ```python 
@@ -64,6 +65,8 @@ from rich import inspect
 inspect(my_list, methods=True)
 ```
 ![[Pasted image 20220127002006.png]]
+
+---
 
 # Styles
 In various places in the Rich API you can set a “style” which defines the color of the text and various attributes such as bold, italic etc. A style may be given as a string containing a _style definition_ or as an instance of a [`Style`](https://rich.readthedocs.io/en/latest/reference/style.html#rich.style.Style "rich.style.Style") class.
