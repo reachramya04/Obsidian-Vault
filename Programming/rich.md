@@ -3,6 +3,7 @@ Rich is a Python library for _rich_ text and beautiful formatting in the termina
 
 The [Rich API](https://rich.readthedocs.io/en/latest/) makes it easy to add color and style to terminal output. Rich can also render pretty tables, progress bars, markdown, syntax highlighted source code, tracebacks, and more — out of the box.
 
+---
 # Installing 
 ```bash
 pip install rich
@@ -17,6 +18,7 @@ python -m pip install rich
 python -m rich
 ```
 
+ ---
 # Getting Started
 ###  rich print function 
 To effortlessly add rich output to your application, you can import the [rich print](https://rich.readthedocs.io/en/latest/introduction.html#quick-start) method, which has the same signature as the builtin Python function.
@@ -29,7 +31,7 @@ print("Hello, [bold magenta]World[/bold magenta]!")
 ```
 >  `>>>`  Hello <font color="magenta"  style = "font-weight:bold">World!</font>
 
-
+---
 ###  rich Console
 For more control over rich terminal content, import and construct a [Console](https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console) object.
 
@@ -53,7 +55,7 @@ console.print("Hello", "World!", style="bold red")
 ```
 >  `>>>`  <font color="red" style="font-weight:bold">Hello World!</font>
 
-
+---
 ###  rich Inspect function
 Rich has an [inspect](https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect) function which can produce a report on any Python object, such as class, instance, or builtin.
 ```python 
@@ -468,17 +470,6 @@ print(tree)
 ### Tree Styles
 The Tree constructor and [`add()`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree.add "rich.tree.Tree.add") method allows you to specify a `style` argument which sets a style for the entire branch, and `guide_style` which sets the style for the guide lines. These styles are inherited by the branches and will apply to any sub-trees as well.
 If you set `guide_style` to bold, Rich will select the thicker variations of unicode line characters. Similarly, if you select the “underline2” style you will get double line style of unicode characters.
-
-
-```javascript
-var foo = function (bar) { 
-	return bar++; 
-}; 
-console.log(foo(5));
-```
-
-*[HTML]: Yeetus 
-
 
 
 
