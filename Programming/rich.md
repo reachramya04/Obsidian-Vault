@@ -3,7 +3,7 @@ Rich is a Python library for _rich_ text and beautiful formatting in the termina
 
 The [Rich API](https://rich.readthedocs.io/en/latest/) makes it easy to add color and style to terminal output. Rich can also render pretty tables, progress bars, markdown, syntax highlighted source code, tracebacks, and more — out of the box.
 
----
+
 # Installing 
 ```bash
 pip install rich
@@ -18,7 +18,8 @@ python -m pip install rich
 python -m rich
 ```
 
- ---
+
+
 # Getting Started
 ###  rich print function 
 To effortlessly add rich output to your application, you can import the [rich print](https://rich.readthedocs.io/en/latest/introduction.html#quick-start) method, which has the same signature as the builtin Python function.
@@ -31,7 +32,7 @@ print("Hello, [bold magenta]World[/bold magenta]!")
 ```
 >  `>>>`  Hello <font color="magenta"  style = "font-weight:bold">World!</font>
 
----
+
 ###  rich Console
 For more control over rich terminal content, import and construct a [Console](https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console) object.
 
@@ -55,7 +56,7 @@ console.print("Hello", "World!", style="bold red")
 ```
 >  `>>>`  <font color="red" style="font-weight:bold">Hello World!</font>
 
----
+
 
 ###  rich Inspect function
 Rich has an [inspect](https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect) function which can produce a report on any Python object, such as class, instance, or builtin.
@@ -66,7 +67,7 @@ inspect(my_list, methods=True)
 ```
 ![[Pasted image 20220127002006.png]]
 
----
+
 
 # Styles
 In various places in the Rich API you can set a “style” which defines the color of the text and various attributes such as bold, italic etc. A style may be given as a string containing a _style definition_ or as an instance of a [`Style`](https://rich.readthedocs.io/en/latest/reference/style.html#rich.style.Style "rich.style.Style") class.
