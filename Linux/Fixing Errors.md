@@ -67,6 +67,15 @@ Type this and set both the values to *us*
 **Fix**
 https://wiki.archlinux.org/title/Discord#Lagging_when_scrolling_through_your_guilds
 
+# Nerd Fonts weren't working
+An arabic character came instead of discord logo.
+
+Idk which step fixed it but heres what I did:
+- Install `nerd-fonts-complete` package from AUR
+- Set the alacritty font to `SpaceMono Nerd Font` 
+- set the locale to `LANG=en_US.UTF-8`
+- then good ol restart 
+
 
 
 
