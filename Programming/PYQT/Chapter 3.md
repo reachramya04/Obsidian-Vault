@@ -126,3 +126,67 @@ The `self.sender()` method helps in recieving the signals generated and the `sen
 
 
 ## MessageBox Widgets
+```python
+import sys
+from PyQt5.QtWidgets import (
+    QApplication, QWidget, QLabel,
+    QMessageBox, QLineEdit, QPushButton)
+
+from PyQt5.QtGui import QFont
+
+
+class showMessageBox(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(100, 100, 400, 200)
+        self.setWindowTitle("Message Box Example Window")
+        self.showWidgets()
+        self.show()
+
+    def showWidgets(self):
+        header_label = QLabel("Author Catalogue", self)
+        header_label.move(20, 20)
+        header_label.setFont(QFont("Space Mono Nerdfont", 20))
+
+        sub_header_label = QLabel(
+            "Enter the name of the author you are searching for", self)
+        sub_header_label.move(30, 70)
+
+        name_label = QLabel("Name:", self)
+        name_label.move(30, 110)
+
+        self.name_entry = QLineEdit(self)
+        self.name_entry.move(80, 110)
+        self.name_entry.resize(190, 20)
+        self.name_entry.setPlaceholderText("FirstName LastName")
+
+        search_button = QPushButton("Search",  self)
+        search_button.move(150, 160)
+        search_button.clicked.connect(self.displayMessageBox)
+
+    def displayMessageBox(self):
+        messagebox = QMessageBox()
+        if self.name_entry.text() in ["Guacamole", "Jeebus", "Yeetus"]:
+            messagebox.information(
+                self, "Author Found", "Author found in catalogue",
+                QMessageBox.Ok, QMessageBox.Ok)
+
+        else:
+            messagebox.question(self, "Author Not Found", "Author Found in catalogue \nDo you wish to continue", 
+                    QMessageBox.Yes | QMessageBox.No)
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = showMessageBox()
+    sys.exit(app.exec_())
+```
+
+`QMessageBox` has multiple boxes for the varying need of the user.
+Here information and question type box is used.
+The argument is as follows
+(Parent_object , Header , Text , Buttons)
+The type of buttons can be Yes , No , Reset , Open and Save.
