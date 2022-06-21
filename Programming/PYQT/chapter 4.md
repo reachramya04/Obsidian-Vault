@@ -81,3 +81,99 @@ At the end the main layout of the widget app is set to the vertical layout.
 `setSpacing()` sets a permanent distance between the widgets of the layout.
 
 `QButtonGroup` is used to makes the checkboxes mutually exclusive. It means that only one of them can be checked at a time.
+
+## QComboBox and QSpinBox
+*QComboBox* is like a dropdown menu to select items.
+*QSpinBox* is used to select a range of integer values.
+
+```python
+import sys
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QLabel,
+    QPushButton, QHBoxLayout,
+    QCheckBox, QVBoxLayout, QComboBox, QSpinBox)
+from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt
+
+
+class foodGUI(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(100, 100, 300, 200)
+        self.setWindowTitle("FOOD ITEM GUI")
+        self.displayWidgets()
+        self.show()
+
+    def displayWidgets(self):
+        ### DEFINING WIDGETS ###
+        title = QLabel("Select the food items", self)
+        title.setFont(QFont("space mono nerdfont", 15))
+
+        food_items = ["egg", "turkey sandwich", "ham sandwich",
+                      "cheese", "hummus", "yogurt", "apple", "banana", "orange",
+                      "waffle", "baby carrots", "bread", "pasta", "crackers",
+                      "pretzels", "pita chips", "coffee", "soda", "water"]
+
+        food_selector1 = QComboBox()
+        food_selector1.addItems(food_items)
+        self.food_price1 = QSpinBox()
+        self.food_price1.setRange(0, 100)
+        self.food_price1.setPrefix("$")
+        self.food_price1.valueChanged.connect(self.displayTotal)
+
+        food_selector2 = QComboBox()
+        food_selector2.addItems(food_items)
+        self.food_price2 = QSpinBox()
+        self.food_price2.setRange(0, 100)
+        self.food_price2.setPrefix("$")
+        self.food_price2.valueChanged.connect(self.displayTotal)
+
+        self.total_cost = QLabel("Total Spent : $0", self)
+
+        ### DEFINING LAYOUTS AND ADDING WIDGETS ###
+        title_hbox = QHBoxLayout()
+        title_hbox.addStretch()
+        title_hbox.addWidget(title)
+        title_hbox.addStretch()
+
+        food_hbox1 = QHBoxLayout()
+        food_hbox1.addStretch()
+        food_hbox1.addWidget(food_selector1)
+        food_hbox1.addStretch(20)
+        food_hbox1.addWidget(self.food_price1)
+        food_hbox1.addStretch()
+
+        food_hbox2 = QHBoxLayout()
+        food_hbox2.addStretch()
+        food_hbox2.addWidget(food_selector2)
+        food_hbox2.addStretch(20)
+        food_hbox2.addWidget(self.food_price2)
+        food_hbox2.addStretch()
+
+        main_vbox = QVBoxLayout()
+        main_vbox.addStretch()
+        main_vbox.addLayout(title_hbox)
+        main_vbox.addStretch()
+        main_vbox.addLayout(food_hbox1)
+        main_vbox.addStretch()
+        main_vbox.addLayout(food_hbox2)
+        main_vbox.addStretch()
+        main_vbox.addWidget(self.total_cost)
+
+        self.setLayout(main_vbox)
+
+    def displayTotal(self):
+        total_amount = self.food_price1.value() + self.food_price2.value()
+        self.total_cost.setText(f"Total Spent : {total_amount}")
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = foodGUI()
+    sys.exit(app.exec_())
+```
+
+The methods in this example are self explanatory.
