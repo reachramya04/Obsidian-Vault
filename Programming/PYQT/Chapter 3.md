@@ -60,7 +60,7 @@ if __name__ == '__main__':
 ---
 
 
-## Events , Signals and Slots and CHECKBOXES
+## Events , Signals and Slots 
 ### Events 
 PyQt5 is an **event** driven GUI; It means that it listens for user events like pressing a button or cursor movement or any other user input until it is closed.
 
