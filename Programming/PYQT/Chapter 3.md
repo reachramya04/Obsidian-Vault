@@ -190,3 +190,88 @@ Here information and question type box is used.
 The argument is as follows
 (Parent_object , Header , Text , Buttons)
 The type of buttons can be Yes , No , Reset , Open and Save.
+
+## Login GUI 
+```python
+import sys
+from PyQt5.QtWidgets import (
+    QApplication, QWidget, QLabel,
+    QMessageBox, QLineEdit, QPushButton,
+    QCheckBox)
+
+from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt
+
+
+class loginGUI(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(100, 100, 400, 230)
+        self.setWindowTitle("Login GUI")
+        self.displayWidgets()
+        self.show()
+
+    def displayWidgets(self):
+        header_label = QLabel("Login", self)
+        header_label.setFont(QFont("Space Mono Nerdfont", 15))
+        header_label.move(140, 10)
+
+        QLabel("username :", self).move(30, 60)  # Username label
+        self.user_entry = QLineEdit(self)
+        self.user_entry.move(120, 60)
+        self.user_entry.resize(150, 20)
+
+        QLabel("password :", self).move(30, 90)  # password label
+        self.pass_entry = QLineEdit(self)
+        self.pass_entry.move(120, 90)
+        self.pass_entry.resize(150, 20)
+        self.pass_entry.setEchoMode(QLineEdit.Password)
+
+        show_pass_cb = QCheckBox("show password", self)
+        show_pass_cb.move(120, 110)
+        show_pass_cb.stateChanged.connect(self.togglePasswordVisibility)
+
+        login_button = QPushButton("Login", self)
+        login_button.resize(150, 30)
+        login_button.move(120, 140)
+        login_button.clicked.connect(self.checkUserInfo)
+
+    def togglePasswordVisibility(self, state):
+        if state == Qt.Checked:
+            self.pass_entry.setEchoMode(QLineEdit.Normal)
+        else:
+            self.pass_entry.setEchoMode(QLineEdit.Password)
+
+    def checkUserInfo(self):
+        messagebox = QMessageBox()
+        if self.user_entry.text() in ["A", "AA", "AAA"] and self.pass_entry.text() in ["B", "BB", "BBB"]:
+            messagebox.information(
+                self, "Login Successful", "Login Successful", QMessageBox.Ok)
+        else:
+            messagebox.critical(self, "Login Unsuccessful",
+                                "Login Unsuccessful", QMessageBox.Ok)
+
+    def closeEvent(self, event):
+        messagebox = QMessageBox()
+        quit_message = messagebox.question(
+            self, "Quit", "", QMessageBox.No | QMessageBox.Yes)
+        if quit_message == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = loginGUI()
+    sys.exit(app.exec_())
+```
+
+`setEchoMode` method on the *QLineEdit* widget changes how the text is displayed , `setEchoMode(QLineEdit.Password)` will change it to display text as dots. 
+
+The *QCheckBox* `stateChanged` method is like `clicked` in the use case of *QLineEdit*.
+
+*closeEvent* is a builtin method which prompts the user for confirmation when closing the app. (The name of the method must not be changed.)
