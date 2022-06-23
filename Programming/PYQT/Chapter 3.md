@@ -275,3 +275,4 @@ if __name__ == "__main__":
 The *QCheckBox* `stateChanged` method is like `clicked` in the use case of *QLineEdit*.
 
 *closeEvent* is a builtin method which prompts the user for confirmation when closing the app. (The name of the method must not be changed.)
+
