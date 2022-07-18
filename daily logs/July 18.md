@@ -14,3 +14,5 @@ Mom and Dad had no arguments today , which is good I believe. Didnt get breakfas
 
 ### 1:21PM
 Started with html and css course.
+Learnt about flexbox and grid display.
+Gtg watch vikings :D
