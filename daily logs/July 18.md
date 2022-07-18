@@ -11,3 +11,6 @@ There are no significant improvements in meditation.
 I feel like I have lost the touch which I used to have before. That most probably will change when I wake up early and start meditating again.
 
 Mom and Dad had no arguments today , which is good I believe. Didnt get breakfast today. Mum is fasting today.
+
+### 1:21PM
+Started with html and css course.
