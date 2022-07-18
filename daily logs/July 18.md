@@ -16,3 +16,9 @@ Mom and Dad had no arguments today , which is good I believe. Didnt get breakfas
 Started with html and css course.
 Learnt about flexbox and grid display.
 Gtg watch vikings :D
+
+### 5:52PM 
+Watched like 1.25 eps of vikings.
+Slept and woke up around 5:30 had a poo poo break and started with pyqt.
+
+QGridLayout is next.

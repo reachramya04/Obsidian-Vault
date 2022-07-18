@@ -285,3 +285,9 @@ This is used to add a row in the formlayout.
 The text is shown on the left side of widget/layout.
 
 Also `setInputMask` method is used to limit the number of characters in a *QLineEdit Widget*.
+
+
+### QGridLayout
+The QGridLayout layout manager is used to arrange widgets in rows and columns similar to a spreadsheet or matrix. The layout manager takes the space within its parent
+window or widget and divides it up according to the sizes of the widgets within that row (or column). Adding space between widgets, creating a border, or stretching widgets
+across multiple rows or columns is also possible.
