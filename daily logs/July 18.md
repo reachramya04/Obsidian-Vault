@@ -22,3 +22,10 @@ Watched like 1.25 eps of vikings.
 Slept and woke up around 5:30 had a poo poo break and started with pyqt.
 
 QGridLayout is next.
+
+### 6:46 PM
+Took a short break at 6:30 , stretched the body for 15 mins.
+Dad got his mango ice cream and seems to be in a good mood.
+
+QGridLayout is done. 
+Starting with chapter 5 in pyqt.
