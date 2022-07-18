@@ -29,3 +29,7 @@ Dad got his mango ice cream and seems to be in a good mood.
 
 QGridLayout is done. 
 Starting with chapter 5 in pyqt.
+
+### 8:13PM
+Food break + meme break is over.
+Also deleted my reddit account.
