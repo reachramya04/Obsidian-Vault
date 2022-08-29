@@ -39,3 +39,22 @@ X \cup Y = \{a,b,c,d,e,f \}
 
 
 ![[Pasted image 20220829220342.png]]
+### Intersection
+It is the set of common elements between 2 sets.
+$$\begin{align}
+X = \{a,b,c,d \} \\
+Y = \{ d,e \} \\
+X \cap Y = \{d \}
+\end{align}$$
+![[Pasted image 20220829224551.png]]
+### Set Difference 
+It is the set of elements that are in $X$ but not in $Y$.
+$$\begin{align}
+X = \{a,b,c,d \} \\
+Y = \{ a,d,e,f \} \\
+X - Y = \{b,c \}
+\end{align}$$
+![[Pasted image 20220829224903.png]]
+
+In set difference order of difference matters
+$$X - Y \neq Y - X$$
