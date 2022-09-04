@@ -28,7 +28,7 @@ Example : $\sqrt{5} \notin \mathbb{N}$
 $$\mathbb{Q} \subset \mathbb{R}$$
  * Every set is a subset of itself i.e. $X \in X$
  * Equal sets i.e. $X = Y$ can be represented as $X \subseteq Y$.
-
+* When  $X \neq Y$ and $X \in Y$ then , $X$ is called a **proper subset** of $Y$.
 
 ## Empty Set and Powerset
 ### Empty Set
