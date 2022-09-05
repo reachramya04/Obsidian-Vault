@@ -21,8 +21,14 @@ Also a **set which has reflexive relation will also have an identity relation** 
 ## Transitive Relation
 It is when 2 elements are related to each other such that **a** is related to **b** and **b** is related to **c** then **a** is related to **c**.
 $(a,b)$ belongs to $A$ and $(b,c)$ belongs to $A$ then $(a,c)$ should also belong to $A$.
-$$S = \set{(a,b) \ | \ (a,b) \in A \times A \ , \ a<b}$$
+$$T = \set{(a,b) \ | \ (a,b) \in A \times A \ , \ a<b}$$
 If $a < b$ and $b < c$ then $a<c$.
 
 
 ## Antisymmetric Relation
+It is when one pair is their , its reverse should not be in the Set.
+$(a,b)$ belongs to some set $A$ then $(b,a)$ should not belong to $A$.
+i.e. $(a,b) \in A$ and $a \neq b$ then $(b,a) \notin A$
+$$A = \set{(a,b) \  | \ (a,b) \in \ \mathbb{R} \times \mathbb{R} \ , \ a < b}$$
+## Equivalence Relations
+It is when a set satisfies all the conditions for **Symmetric , Reflexive and Transitive** relations.
