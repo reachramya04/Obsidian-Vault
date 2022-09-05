@@ -17,3 +17,12 @@ where $A = \set{1,2,3}$
 
 Also a **set which has reflexive relation will also have an identity relation** as $\set{(1 \ , \ 1) \ , \ (2 \ , \ 2) \ , \ (3 \ , \ 3)}$ are present in the set above.
 
+
+## Transitive Relation
+It is when 2 elements are related to each other such that **a** is related to **b** and **b** is related to **c** then **a** is related to **c**.
+$(a,b)$ belongs to $A$ and $(b,c)$ belongs to $A$ then $(a,c)$ should also belong to $A$.
+$$S = \set{(a,b) \ | \ (a,b) \in A \times A \ , \ a<b}$$
+If $a < b$ and $b < c$ then $a<c$.
+
+
+## Antisymmetric Relation
