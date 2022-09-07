@@ -39,4 +39,7 @@ $$A = \set{(a,b) \  | \ (a,b) \in \ \mathbb{R} \times \mathbb{R} \ , \ a < b}$$
 
 ## Equivalence Relations
 It is when a set satisfies all the conditions for **Symmetric , Reflexive and Transitive** relations.
+An equivalence relation partitions a set.
+
 **Identity relation satisfies all the conditions** for symmetric, reflexive and transitive relations.
+**Antisymmetric Relation satisfies all the conditions** for equivalence relation.
